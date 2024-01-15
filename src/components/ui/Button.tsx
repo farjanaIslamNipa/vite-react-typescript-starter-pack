@@ -9,7 +9,7 @@ type TButtonOptions = {
 type TButton = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>& TButtonOptions ;
 
 
-const Button = forwardRef<TRef, TButton>(({ className, variant = 'outline', ...rest }, ref) => {
+const Button = forwardRef<TRef, TButton>(({ className, variant = 'outline', children, ...rest }, ref) => {
 
   const getVariant = (variant : TVariant) => {
     switch (variant) {
@@ -25,7 +25,7 @@ const Button = forwardRef<TRef, TButton>(({ className, variant = 'outline', ...r
   }
   return (
     <button {...rest} ref={ref} className={cn(getVariant(variant), className)}>
-      Click
+      { children }
     </button>
   );
 });
