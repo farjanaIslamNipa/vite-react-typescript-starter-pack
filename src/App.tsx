@@ -1,12 +1,14 @@
 
 import './App.css'
-import MainLayout from './components/layout/MainLayout'
+import Container from './components/ui/Container'
 
 function App() {
 
   return (
     <>
-      <MainLayout />
+      <Container>
+        <h1>container element</h1>
+      </Container>
     </>
   )
 }

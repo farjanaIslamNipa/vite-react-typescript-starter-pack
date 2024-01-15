@@ -4,12 +4,13 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import AdminLayout from "../components/layout/AdminLayout";
 import App from "../App";
+import MainLayout from "../components/layout/MainLayout";
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <MainLayout />,
     children: [
       {
         index: true,

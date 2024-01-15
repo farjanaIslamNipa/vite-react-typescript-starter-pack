@@ -1,36 +1,21 @@
-import axios from "axios";
 import {useEffect, useState} from "react";
+import Button from "../components/ui/Button";
+import Modal from "../components/ui/Modal";
 
 const Home = () => {
-  const [products, setProducts] = useState(null);
+  const [modal, setModal] = useState(false);
 
-  useEffect(() => {
-    // fetch('https://dummyjson.com/products')
-    // .then(res => res.json())
-    // .then(data => setProducts(data))
-    const controller = new AbortController
-  
-    const fetchProducts = async() => {
-      try{
-        const {data} =  await axios.get('https://dummyjson.com/products', {signal: controller.signal})
-        setProducts(data.products)
-      }catch(err){
-        // console.log(err)
-      }
-    }
+  const handleModalClose = () => {
+    setModal(prev => !prev)
+  }
 
-    fetchProducts()
-
-    return() => {
-      controller.abort()
-    }
-
-    // setProducts(productData)
-  }, [])
-
+ 
   return (
     <div>
-     
+      <Button onClick={() =>setModal(prev => !prev)}>Open Modal</Button>
+      <Modal isOpen={modal} onClose={handleModalClose}>
+        <h1>This is modal</h1>
+      </Modal>
     </div>
   );
 };
