@@ -1,17 +1,22 @@
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import cn from '../../utils/cn';
+import Button from '../ui/Button';
+import { zodResolver } from '@hookform/resolvers/zod'
+import {SignUpSchema, TNormalForm} from './zodValidation';
 
 const NormalForm = () => {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm<TNormalForm>({
+    resolver: zodResolver(SignUpSchema) 
+  })
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FieldValues) => {
     console.log(data)
   }
 
   const double = true
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cn('border border-red-400 w-full max-w-5xl p-5 mx-auto', {
+    <form onSubmit={handleSubmit(onSubmit)} className={cn('border w-full max-w-5xl p-5 mx-auto', {
       'max-w-5xl' : double,
       'max-w-md' : !double
     })}>
@@ -20,17 +25,22 @@ const NormalForm = () => {
       })}>
         <div >
           <label className='block' htmlFor="name">Name</label>
-          <input className='w-full' type="text" id="name" {...register('name')} />
+          <input className='w-full' type="text" id="name" {...register('name') } />
+          {errors?.name && (<span className='text-xs text-red-500'>{errors.name.message}</span>)}
         </div>
         <div>
           <label className='block' htmlFor="email">Email</label>
           <input className='w-full' type="text" id="email" {...register('email')} />
+          {errors?.email && (<span className='text-xs text-red-500'>{errors.email.message}</span>)}
         </div>
         <div>
           <label className='block' htmlFor="password">Password</label>
-          <input className='w-full' type="text" id="password" {...register('password')} />
+          <input className='w-full' type="password" id="password" {...register('password')} />
+          {errors?.password && (<span className='text-xs text-red-500'>{errors.password.message}</span>)}
         </div>
-        <button type='submit'>Submit</button>
+      </div>
+      <div className='flex justify-end'>
+        <Button type='submit'>Submit</Button>
       </div>
     </form>
   );
