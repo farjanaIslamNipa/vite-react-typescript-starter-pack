@@ -1,7 +1,8 @@
 
 import './App.css'
 import Container from './components/ui/Container'
-import Animation from './pages/Animation'
+import {Button} from './components/ui/button'
+
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <>
       <Container>
         <h1>container element</h1>
-        <Animation />
+        <Button>Button</Button>
       </Container>
     </>
   )

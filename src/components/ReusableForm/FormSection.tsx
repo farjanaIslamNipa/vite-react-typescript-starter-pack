@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import cn from "../../utils/cn";
-import {FormElementContext} from "../../pages/Home";
+import {FormElementContext} from "../../pages/ModalHome";
 
 export const FormSection = ({ children }) => {
   const {double} = useContext(FormElementContext)
