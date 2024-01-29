@@ -1,22 +1,13 @@
-import {motion, useScroll, useTransform} from "framer-motion";
-import {useRef} from "react";
-
+import useScrollGrow from "@/hooks/useScrollGrow";
+import { motion } from "framer-motion";
 
 const BatteryReplacement = () => {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['0 1', '1.5 1']
-  });
 
-  const scaleValues = useTransform(scrollYProgress, [0, 1], [0.9, 1])
-  const opacityValues = useTransform(scrollYProgress, [0, 1], [0.1, 1])
+  const {ref, style} = useScrollGrow()
+
   return (
     <motion.div
-    style={{
-      scale: scaleValues,
-      opacity: opacityValues
-    }}
+    style={style}
     ref={ref}
     className="h-40 rounded-2xl bg-red-500 p-5"
     >

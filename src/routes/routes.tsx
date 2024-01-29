@@ -4,6 +4,8 @@ import Dashboard from "../pages/Dashboard";
 import AdminLayout from "../components/layouts/AdminLayout";
 import MainLayout from "../components/layouts/MainLayout";
 import Home from "@/pages/home";
+import AddService from "@/pages/admin/AddService";
+import ServiceList from "@/pages/admin/ServiceList";
 
 
 
@@ -35,8 +37,12 @@ const router = createBrowserRouter([
         element: <Dashboard />
       },
       {
-        path: 'add-admin',
-        element: <h1>This is add admin page</h1>
+        path: 'add-service',
+        element: <AddService />
+      },
+      {
+        path: 'services',
+        element: <ServiceList />
       }
     ]
   }
