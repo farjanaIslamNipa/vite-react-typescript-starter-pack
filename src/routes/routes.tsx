@@ -3,7 +3,8 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import AdminLayout from "../components/layouts/AdminLayout";
 import MainLayout from "../components/layouts/MainLayout";
-import Home from "@/pages/Home";
+import Home from "@/pages/home";
+
 
 
 const router = createBrowserRouter([
