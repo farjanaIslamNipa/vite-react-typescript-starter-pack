@@ -73,13 +73,17 @@
   body {
     @apply bg-background text-foreground;
   }
+  html{
+    font-family: 'Poppins', sans-serif;
+  }
+  h2{
+    @apply text-5xl font-semibold
+  }
 }
 
 @layer components{
   .app-container{
     @apply w-full max-w-[1220px] mx-auto px-5
   }
-  html{
-    font-family: 'Poppins', sans-serif;
-  }
+
 }
